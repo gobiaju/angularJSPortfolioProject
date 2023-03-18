@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-list';
+  tasks = [
+    "program in kotlin",
+    "program in python",
+    "program in C-sharp",
+    "program in C++",
+   "learn data structures and algorithms"
+  ]
+
+  add(newTask: string){
+    alert(newTask)
+  }
 }

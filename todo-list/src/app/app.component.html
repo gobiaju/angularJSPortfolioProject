@@ -1,47 +1,19 @@
 <div class = "container">
   <div class="todo-list">
+
+    <h1>
+      {{title}} <!--one way data binding where the component and the template can interact with each other-->
+    </h1>
+    
     <div class="input-group">
-      <input type="text" placeholder="to do">
-      <button class="add-button">+</button>
+      <input type="text" placeholder="to do" #newTask> <!--a variable newTask is used to take in info from the input and send it to the add() method -->
+      <button (click)="add(newTask.value)" class="add-button">+</button> <!--use local reference such that when you click on the button it adds a new task to the list of tasks. The add method that is called here makes takes in the argument newTask.value(the .value means that what even you write down in the newTask will be used) and adds it  to the list-->
     </div>
     <table>
-      <tr class="even">
+      <tr *ngFor= "let task of tasks" class="even">
         <td>
           <pre>
-            program in kotlin
-          </pre>
-        </td>
-        <td>
-          <button class="remove-button">X</button>
-          <button class="done-button">Done</button>
-        </td>
-      </tr>
-      <tr class="odd">
-        <td>
-          <pre>
-            program in python
-          </pre>
-        </td>
-        <td>
-          <button class="remove-button">X</button>
-          <button class="done-button">Done</button>
-        </td>
-      </tr>
-      <tr class="even">
-        <td>
-          <pre>
-            program in C-sharp
-          </pre>
-        </td>
-        <td>
-          <button class="remove-button">X</button>
-          <button class="done-button">Done</button>
-        </td>
-      </tr>
-      <tr class="odd">
-        <td>
-          <pre>
-            program in C++
+            {{task}}  <!--So here we use *ngFor (meaning for loop in angular to loop over an array of tasks and output it in the browser)-->
           </pre>
         </td>
         <td>
