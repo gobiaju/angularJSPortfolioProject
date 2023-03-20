@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Route } from '@angular/router';
 @Component({
   selector: 'task-list',
   templateUrl: './task-list.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 //always remember to add the implements OnInit and others
 export class TaskListComponent implements OnInit {    
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
+  newTaskTitle: string = ""
+  date: Date = new Date()
+  //ngOnInit taps into the interface of the lifecycle of a comoponent
+  //ngOnInit is called once after the component has been initialized
+  //to learn more: https://angular.io/guide/lifecycle-hooks
   ngOnInit(): void {
-    
+    this.date = new Date(this.route.snapshot.params['date'])
   }
 
   tasks: Task [] = [
@@ -21,9 +26,11 @@ export class TaskListComponent implements OnInit {
   ]
 
   // the add method takes in an argument of newTask and pushes it to the task array. The push method takes in an argument of type Task
-  add(newTask: string){
-    this.tasks.push(new Task(newTask))
-    alert(newTask + " added to list of tasks") 
+  add(){
+    this.tasks.push(new Task(this.newTaskTitle))
+    alert(this.newTaskTitle + " added to list of tasks") 
+    this.newTaskTitle = ""
+    
   }
   remove(existingTask: Task){
    var userConfirmed = confirm(`are you sure that you want to remove the following task? \n " ${existingTask.title}"`)
