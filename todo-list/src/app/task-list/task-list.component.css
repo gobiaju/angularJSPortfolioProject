@@ -118,6 +118,7 @@
   }
 
   .validation-error {
-    color:rgb(232, 12, 12);
+    color:rgb(245, 51, 51);
     margin-bottom: 10px;
+    font-style: italic;
   }

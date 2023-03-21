@@ -1,19 +1,28 @@
 <div class = "container">
     <div class="todo-list">
+    <form (ngSubmit) = "add(taskNgForm);" #taskNgForm="ngForm" #form>
       <div class ="input-group">
-        <input [matDatepicker]="picker" [(ngModel)]="date">
+        <input readonly name="date" [matDatepicker]="picker" [(ngModel)]="date">
         <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </div>
-
       <h3>
         add an item to the task list
       </h3>
       
       <div class="input-group">
-        <input type="text" placeholder="to do" [(ngModel)]="newTaskTitle"> <!--a variable newTask is used to take in info from the input and send it to the add() method -->
-        <button (click)="add()" class="add-button">+</button> <!--use local reference such that when you click on the button it adds a new task to the list of tasks. The add method that is called here makes takes in the argument newTask.value(the .value means that what even you write down in the newTask will be used) and adds it  to the list-->
+        <input #newTask="ngModel" required minlength="4" name="taskTitle" type="text" placeholder="to do" [(ngModel)]="newTaskTitle"> <!--a variable newTask is used to take in info from the input and send it to the add() method -->
+        <button  class="add-button" [disabled]="!form.checkValidity()">+</button> <!--use local reference such that when you click on the button it adds a new task to the list of tasks. The add method that is called here makes takes in the argument newTask.value(the .value means that what even you write down in the newTask will be used) and adds it  to the list-->
       </div>
+      <div *ngIf="newTask.invalid && (newTask.touched || newTask.dirty)" class="validation-error">
+        <div *ngIf="newTask.errors?.['required']">
+          task title is required.
+        </div>
+        <div *ngIf="newTask.errors?.['minlength']">
+          task title should have more than 4 characters.
+        </div>
+      </div>
+    </form>  
       <table>
         <tr *ngFor= "let task of tasks; let i = index" [class.even]="i%2==0" [class.odd]="i%2">
           <td>

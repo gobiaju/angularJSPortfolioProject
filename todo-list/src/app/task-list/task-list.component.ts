@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 @Component({
   selector: 'task-list',
@@ -26,10 +27,14 @@ export class TaskListComponent implements OnInit {
   ]
 
   // the add method takes in an argument of newTask and pushes it to the task array. The push method takes in an argument of type Task
-  add(){
+  add(taskNgForm: NgForm){  //NgForm is a container for multiple form contols for input to track its values
+    if (taskNgForm.touched == false)
+      return;
+   // if (taskNgForm.valid == false)
+   //  return;
     this.tasks.push(new Task(this.newTaskTitle))
     alert(this.newTaskTitle + " added to list of tasks") 
-    this.newTaskTitle = ""
+    taskNgForm.reset({date: this.date})
     
   }
   remove(existingTask: Task){
@@ -51,7 +56,7 @@ class Task{
   //The markAsDone method takes in a variable task of type Task and sets the isDone property of the Task clas to true
   //it also alerts the user that the task is done
   toggleIsDone(){
-    alert('the selscted task is done')
+    alert('the task: ' + this.title + ' is done')
     this.isDone = !this.isDone //this toggles the done button to set it to what ever status it is
   }
   public isDone = false
