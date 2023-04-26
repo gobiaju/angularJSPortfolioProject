@@ -1,0 +1,154 @@
+{
+  "uuid": "b4a15363-f74d-4616-98ac-68686d736541",
+  "lastMigration": 27,
+  "name": "Tasks api mocks",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d0f803b5-fff9-4f79-8c37-17ef1ea566dc",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "tasks/:date",
+      "responses": [
+        {
+          "uuid": "96bfa710-ee0b-4900-8210-bae6698ba8cd",
+          "body": "[\n  {\n    \"title\": \"program in kotlin\"\n  },\n  {\n    \"title\": \"program in python\"\n  },\n  {\n    \"title\": \"program in C-sharp\"\n  },\n  {\n    \"title\": \"program in C++\"\n  },\n  {\n    \"title\": \"learn data structures and algorithms\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "417b8c83-96aa-4538-b797-220a655fd062",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tasks/:date",
+      "responses": [
+        {
+          "uuid": "6ba293fe-7c4a-4a30-aa38-fc5101c8040d",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a279a866-80ed-4df6-94e7-25b108915a42",
+      "type": "http",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "tasks/:date/:title",
+      "responses": [
+        {
+          "uuid": "13dfae72-cb4c-4bbd-8525-92c105da013c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d0f803b5-fff9-4f79-8c37-17ef1ea566dc"
+    },
+    {
+      "type": "route",
+      "uuid": "417b8c83-96aa-4538-b797-220a655fd062"
+    },
+    {
+      "type": "route",
+      "uuid": "a279a866-80ed-4df6-94e7-25b108915a42"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    },
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

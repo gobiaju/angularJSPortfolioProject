@@ -1,6 +1,8 @@
-
 <div>
-    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
-    {{selectedDate.toLocaleDateString()}} <!--the .toLocaleDateString() is set the selected date and outputs the date on the screen-->
-    <a [routerLink]="['/task-list', {date:selectedDate}]">Tasks</a> <!--the adding of the {date:selectedDate} is to add the selected date to the  a-tag-->
+  <h3>Select a date</h3>
+  <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+  {{ selectedDate.toLocaleDateString() }}
+  <!--the .toLocaleDateString() is set the selected date and outputs the date on the screen-->
+  <a [routerLink]="['/task-list', { date: selectedDate }]">Tasks</a>
+  <!--the adding of the {date:selectedDate} is to add the selected date to the  a-tag-->
 </div>
